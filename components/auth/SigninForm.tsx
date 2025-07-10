@@ -21,7 +21,6 @@ import { toast } from "sonner";
 import { faker } from "@faker-js/faker";
 import { signinFormSchema } from "@/types/forms";
 import HugeiconsAlertCircle from "../svgs/HugeiconsAlertCircle";
-import { useRouter } from "next/navigation";
 import { redirectToWallet, signinAction } from "@/actions/auth-actions";
 
 export function SigninForm({
@@ -29,8 +28,6 @@ export function SigninForm({
   ...props
 }: React.ComponentProps<"div">) {
   const [isAuthenticating, setIsAuthenticating] = useState(false);
-  const router = useRouter();
-
   const form = useForm<z.infer<typeof signinFormSchema>>({
     resolver: zodResolver(signinFormSchema),
     defaultValues: {
@@ -63,7 +60,7 @@ export function SigninForm({
         throw new Error(result.message);
       }
       
-    } catch (error: any) {
+    } catch (error) {
       console.log(error);
       toast.error("Something went wrong. Please try again.", {
         position: "top-center",
