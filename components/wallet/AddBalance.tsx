@@ -36,7 +36,7 @@ export default function AddBalance({ setTransactions }: AddBalanceProps) {
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
-      className="dark:bg-[#29363f] bg-background p-4 rounded grid gap-y-2"
+      className="dark:bg-brand bg-background p-4 rounded grid gap-y-2"
     >
       <h3 className="font-medium text-lg mb-2">Add Balance</h3>
 

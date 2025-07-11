@@ -35,7 +35,7 @@ export default function BankAccounts() {
       initial="hidden"
       animate="visible"
       variants={containerVariants}
-      className="p-4 dark:bg-[#29363f] bg-background rounded grid gap-y-2"
+      className="p-4 dark:bg-brand bg-background rounded grid gap-y-2"
     >
       <h3>Bank Accounts</h3>
       <motion.div className="grid gap-y-1">
@@ -47,7 +47,7 @@ export default function BankAccounts() {
           >
             <Link
               href={`/user/my-wallet/${account.id}`}
-              className="flex items-center justify-between hover:bg-muted dark:hover:bg-[#3e4a52] cursor-pointer p-2 rounded"
+              className="flex items-center justify-between hover:bg-muted dark:hover:bg-brand-secondary cursor-pointer p-2 rounded"
             >
               <div className="flex items-center gap-x-2">
                 <Avatar className="size-10 rounded-md">

@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Wallpay
 
-## Getting Started
+Wallpay is a **Next.js** app that simulates a wallet application, built with **Next.js 15**, **TailwindCSS v4**, and **shadcn/ui**.
 
-First, run the development server:
+## ✨ Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- Simulated sign-in page
+  - Validates email (must be a valid format)
+  - Validates password (minimum 8 characters)
+  - On successful validation, creates a dummy user and stores data in cookies using **server actions**
+- Displays dummy wallets, bank accounts, and transactions
+- Dark mode toggle
+- Middleware to protect authenticated routes
+- Husky and commitlint configured for commit message linting
+
+## 📂 Project Structure
+
+```
+/
+├── actions/               # server actions
+│   └── auth-actions.ts    # auth-related actions
+├── components/            # UI components
+├── data/                  # dummy data for accounts, wallets, transactions
+├── lib/
+│   └── utils.ts           # utility functions
+├── middleware.ts          # checks for user authentication
+├── providers/
+│   └── theme-provider.tsx # dark mode theme provider
+├── types/                 # TypeScript types
+├── pages/
+│   ├── auth/
+│   │   └── signin.tsx
+│   ├── user/
+│   │   ├── my-wallet.tsx
+│   │   └── my-wallet/[walletId].tsx
+│   └── wallet.tsx         # homepage
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🗝 Pages
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `/auth/signin` — sign in page
+- `/wallet` — homepage
+- `/user/my-wallet` — view your wallets
+- `/user/my-wallet/[walletId]` — view specific wallet
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠 Tech Stack
 
-## Learn More
+- [Next.js 15](https://nextjs.org/)
+- [TailwindCSS v4](https://tailwindcss.com/)
+- [shadcn/ui](https://ui.shadcn.com/)
+- [Husky](https://typicode.github.io/husky) & [commitlint](https://commitlint.js.org/) — for git hooks and commit linting
 
-To learn more about Next.js, take a look at the following resources:
+## 🚀 Running Locally
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Clone the project and install dependencies:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+git clone https://github.com/thecodingmontana/wallpay.git
+cd wallpay
+pnpm install
+pnpm dev
+```
 
-## Deploy on Vercel
+Visit [http://localhost:3000](http://localhost:3000) in your browser.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Feel free to contribute or open issues!

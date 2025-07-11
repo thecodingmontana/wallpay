@@ -7,6 +7,12 @@ export function middleware(request: NextRequest) {
     const isUserCookieNull = !userCookie || userCookie.value === null || userCookie.value === 'null';
     const isAuthenticatedCookieNull = !authenticatedCookie || authenticatedCookie.value === null || authenticatedCookie.value === 'null';
 
+    // If user is accessing root path and not authenticated, redirect to signin
+    if (request.nextUrl.pathname === '/' && isUserCookieNull && isAuthenticatedCookieNull) {
+        const signinUrl = new URL('/auth/signin', request.url);
+        return NextResponse.redirect(signinUrl);
+    }
+
     if (isUserCookieNull && isAuthenticatedCookieNull) {
         if (request.nextUrl.pathname === '/auth/signin') {
             return NextResponse.next();

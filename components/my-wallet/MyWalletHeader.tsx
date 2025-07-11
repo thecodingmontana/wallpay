@@ -13,7 +13,7 @@ export default function MyWalletHeader() {
   return (
     <button
       onClick={() => onGoBack()}
-      className="grid w-full cursor-pointer gap-y-6 bg-[#29363f] p-5"
+      className="grid w-full cursor-pointer gap-y-6 bg-brand p-5"
     >
       <motion.div
         initial={{ opacity: 0, y: -50 }}

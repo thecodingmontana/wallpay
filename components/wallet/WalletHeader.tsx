@@ -11,7 +11,7 @@ interface WalletHeaderProps {
 
 export default function WalletHeader({ user }: WalletHeaderProps) {
   return (
-    <div className="grid gap-y-6 bg-[#29363f] p-5 h-48">
+    <div className="grid gap-y-6 bg-brand p-5 h-48">
       <motion.div
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
