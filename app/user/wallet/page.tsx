@@ -1,8 +1,8 @@
 import WalletHeader from "@/components/wallet/WalletHeader";
 import WalletWrapper from "@/components/wallet/WalletWrapper";
+import { validateRequest } from "@/lib/auth";
 import { User } from "@/types";
 import { Metadata } from "next";
-import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import React from "react";
 
@@ -12,16 +12,8 @@ export const metadata: Metadata = {
 };
 
 export default async function UserWalletPage() {
-  const cookieStore = await cookies();
-  const userCookie = cookieStore.get("user");
-  const authenticatedCookie = cookieStore.get("authenticated");
-
-  const isUserAuthenticated =
-    userCookie && userCookie.value && userCookie.value !== "null";
-  const isAuthenticated =
-    authenticatedCookie &&
-    authenticatedCookie.value &&
-    authenticatedCookie.value !== "null";
+  const { isAuthenticated, isUserAuthenticated, userCookie } =
+    await validateRequest();
 
   if (!isUserAuthenticated || !isAuthenticated) {
     redirect("/auth/signin");
@@ -37,8 +29,8 @@ export default async function UserWalletPage() {
 
   return (
     <div className="flex flex-col gap-y-4 relative">
-        <WalletHeader user={user} />
-        <WalletWrapper user={user} />
+      <WalletHeader user={user} />
+      <WalletWrapper user={user} />
     </div>
   );
 }
