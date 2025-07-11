@@ -37,6 +37,21 @@ export async function signinAction(userData: {
     }
 }
 
+export async function signOutAction() {
+    try {
+        const cookieStore = await cookies();
+
+        cookieStore.delete('user')
+        cookieStore.delete('authenticated')
+
+        return { success: true, message: 'Sign out successfully' };
+
+    } catch (error) {
+        console.error('Error setting cookies:', error);
+        return { success: false, message: 'Failed to sign in' };
+    }
+}
+
 export async function redirectToWallet() {
     redirect('/user/wallet');
 }

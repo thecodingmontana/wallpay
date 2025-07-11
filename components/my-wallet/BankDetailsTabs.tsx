@@ -2,7 +2,11 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import DetailsTabContent from "./DetailsTabContent";
 import TransactionHistoryTab from "./TransactionHistoryTab";
 
-export default function BankDetailsTabs() {
+interface BankDetailsTabsProps {
+  walletId: string;
+}
+
+export default function BankDetailsTabs({ walletId }: BankDetailsTabsProps) {
   return (
     <Tabs defaultValue="details" className="w-full p-2">
       <TabsList>
@@ -20,7 +24,7 @@ export default function BankDetailsTabs() {
         </TabsTrigger>
       </TabsList>
       <TabsContent value="details">
-        <DetailsTabContent />
+        <DetailsTabContent walletId={walletId} />
       </TabsContent>
       <TabsContent value="transaction-history">
         <TransactionHistoryTab />

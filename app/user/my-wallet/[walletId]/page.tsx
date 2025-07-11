@@ -19,7 +19,7 @@ export default async function WalletIdPage({ params }: WalletIdPageProps) {
   }
 
   return (
-    <div>
+    <div className="flex flex-col h-screen">
       <BankDetailsWrapper walletId={walletId} />
     </div>
   );

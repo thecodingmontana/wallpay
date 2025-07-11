@@ -9,6 +9,9 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Button } from "../ui/button";
 import { LogOut } from "lucide-react";
+import { signOutAction } from "@/actions/auth-actions";
+import { toast } from "sonner";
+import { useRouter } from "next/navigation";
 
 export default function User({
   user,
@@ -19,6 +22,23 @@ export default function User({
     avatar: string;
   };
 }) {
+  const router = useRouter();
+
+  const onSignout = async () => {
+    const { message, success } = await signOutAction();
+
+    if (success) {
+      toast.success(message, {
+        position: "top-center",
+      });
+
+      router.push("/auth/signin");
+    } else {
+      toast.error("Failed to sign out!", {
+        position: "top-center",
+      });
+    }
+  };
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -53,9 +73,9 @@ export default function User({
           </div>
         </DropdownMenuLabel>
         <DropdownMenuSeparator />
-        <DropdownMenuItem>
+        <DropdownMenuItem onClick={() => onSignout()}>
           <LogOut />
-          Log out
+          Sign out
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

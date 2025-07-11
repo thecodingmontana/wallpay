@@ -19,7 +19,7 @@ export default function MyWalletHeader() {
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
-        className="flex items-center gap-x-1 justify-start"
+        className="flex items-center gap-x-1 justify-start text-white"
       >
         <ChevronLeft />
         Back

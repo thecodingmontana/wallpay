@@ -11,3 +11,10 @@ export interface Transaction {
     date: Date;
     amount: number;
 }
+
+export interface Account {
+    id: string;
+    name: string;
+    number: string;
+    createdAt: Date;
+}

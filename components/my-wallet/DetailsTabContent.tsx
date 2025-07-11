@@ -1,9 +1,15 @@
 import WalletCard from "./WalletCard";
 
-export default function DetailsTabContent() {
+interface DetailsTabContentProps {
+  walletId: string;
+}
+
+export default function DetailsTabContent({
+  walletId,
+}: DetailsTabContentProps) {
   return (
     <div className="p-2">
-      <WalletCard />
+      <WalletCard walletId={walletId} />
     </div>
   );
 }

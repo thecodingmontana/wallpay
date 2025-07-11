@@ -6,25 +6,8 @@ import { ChevronRight } from "lucide-react";
 import { Separator } from "../ui/separator";
 import { format } from "date-fns";
 import Link from "next/link";
-
-const accounts = [
-  {
-    id: "1",
-    name: "Wells Fargo",
-    number: "12345678902445",
-    createdAt: new Date(2024, 5, 10),
-  },
-  {
-    id: "2",
-    name: "Chase Bank",
-    number: "98765432102389",
-    createdAt: new Date(2023, 11, 20),
-  },
-];
-
-function getLastFourDigits(accountNumber: string): string {
-  return accountNumber.slice(-4);
-}
+import { useState } from "react";
+import { accounts as initialAccounts } from "@/data/accounts";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -42,6 +25,11 @@ const itemVariants = {
 };
 
 export default function BankAccounts() {
+  const [accounts] = useState(initialAccounts);
+
+  function getLastFourDigits(accountNumber: string): string {
+    return accountNumber.slice(-4);
+  }
   return (
     <motion.div
       initial="hidden"
@@ -59,7 +47,7 @@ export default function BankAccounts() {
           >
             <Link
               href={`/user/my-wallet/${account.id}`}
-              className="flex items-center justify-between hover:bg-[#3e4a52] cursor-pointer p-2 rounded"
+              className="flex items-center justify-between hover:bg-muted dark:hover:bg-[#3e4a52] cursor-pointer p-2 rounded"
             >
               <div className="flex items-center gap-x-2">
                 <Avatar className="size-10 rounded-md">

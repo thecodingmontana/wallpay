@@ -7,7 +7,7 @@ export default function TransactionHistoryTab() {
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="p-2 grid place-content-center"
+      className="p-2 grid place-content-center my-16"
     >
       <div className="flex flex-col items-center text-muted-foreground gap-y-2">
         <HugeiconsTransaction className="w-24 h-auto" />

@@ -1,6 +1,29 @@
+import { accounts } from "@/data/accounts";
 import { motion } from "motion/react";
+import { format } from "date-fns";
 
-export default function WalletCard() {
+interface WalletCardProps {
+  walletId: string;
+}
+
+function getAccountById(walletId: string) {
+  return accounts.find((acc) => acc.id === walletId);
+}
+
+function formatExpiry(date?: Date) {
+  if (!date) return "N/A";
+  return format(date, "MM/yy");
+}
+
+function maskAccountNumber(number?: string) {
+  if (!number) return "**** ****";
+  const last4 = number.slice(-4);
+  return `**** ${last4}`;
+}
+
+export default function WalletCard({ walletId }: WalletCardProps) {
+  const account = getAccountById(walletId);
+
   return (
     <motion.div
       className="relative w-full h-48 rounded-xl text-white p-4 overflow-hidden shadow-lg bg-gradient-to-r from-green-500 to-emerald-600"
@@ -9,19 +32,21 @@ export default function WalletCard() {
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
       <div className="absolute -top-10 -left-10 w-32 h-32 bg-white/20 rounded-full blur-2xl"></div>
-      <div className="absolute top-4 right-4 text-sm">17/24</div>
 
       <div className="flex flex-col justify-between h-full">
-        <div className="mt-10 text-right tracking-widest text-lg">
-          •••• 2431
-        </div>
-
         <div>
-          <div className="text-xs uppercase opacity-70">Balance</div>
-          <div className="text-2xl font-bold">$ 1,023.00</div>
+          <div className="text-xs uppercase opacity-70">
+            {account?.name ?? "Unknown"}
+          </div>
+          <div className="text-3xl font-bold">
+            {maskAccountNumber(account?.number)}
+          </div>
         </div>
 
-        <div className="text-right text-lg font-bold">VISA</div>
+        <div className="flex items-center justify-between">
+          <div>Exp {formatExpiry(account?.createdAt)}</div>
+          <div className="text-lg font-bold">VISA</div>
+        </div>
       </div>
     </motion.div>
   );
