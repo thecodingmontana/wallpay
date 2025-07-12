@@ -1,6 +1,6 @@
 # Wallpay
 
-Wallpay is a **Next.js** app that simulates a wallet application, built with **Next.js 15**, **TailwindCSS v4**, and **shadcn/ui**.
+Wallpay is a **Next.js** app that simulates a wallet application, built with **Next.js 15** with app router, **TailwindCSS v4**, and **shadcn/ui**.
 
 ## ✨ Features
 
@@ -21,7 +21,7 @@ Wallpay is a **Next.js** app that simulates a wallet application, built with **N
 ├── hooks/
 │   └── useTimeOfDay.ts    # hook to find time of day
 ├── types/                 # TypeScript types
-├── pages/
+├── app/
 │   ├── user/
 │   │   ├── my-wallet/page.tsx
 │   │   └── my-wallet/[walletId]/page.tsx
