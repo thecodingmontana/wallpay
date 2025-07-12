@@ -12,13 +12,13 @@ export default function BankDetailsTabs({ walletId }: BankDetailsTabsProps) {
       <TabsList>
         <TabsTrigger
           value="details"
-          className="data-[state=active]:bg-transparent dark:data-[state=active]:bg-transparent shadow-none data-[state=active]:shadow-none dark:data-[state=active]:shadow-none data-[state=active]:rounded-none dark:data-[state=active]:rounded-none data-[state=active]:border-b dark:data-[state=active]:border-x-0 data-[state=active]:border-x-0 data-[state=active]:border-t-0 dark:data-[state=active]:border-t-0 data-[state=active]:border-b-brand dark:data-[state=active]:border-b-brand text-md cursor-pointer"
+          className="data-[state=active]:bg-brand dark:data-[state=active]:bg-brand data-[state=active]:rounded-full data-[state=active]:px-6 data-[state=inactive]:px-6 data-[state=active]:text-white data-[state=inactive]:text-muted-foreground cursor-pointer"
         >
           Details
         </TabsTrigger>
         <TabsTrigger
           value="transaction-history"
-          className="data-[state=active]:bg-transparent dark:data-[state=active]:bg-transparent shadow-none data-[state=active]:shadow-none dark:data-[state=active]:shadow-none data-[state=active]:rounded-none dark:data-[state=active]:rounded-none data-[state=active]:border-b dark:data-[state=active]:border-x-0 data-[state=active]:border-x-0 data-[state=active]:border-t-0 dark:data-[state=active]:border-t-0 data-[state=active]:border-b-brand dark:data-[state=active]:border-b-brand text-md cursor-pointer"
+          className="data-[state=active]:bg-brand dark:data-[state=active]:bg-brand data-[state=active]:rounded-full data-[state=active]:px-6 data-[state=inactive]:px-6 data-[state=active]:text-white data-[state=inactive]:text-muted-foreground cursor-pointer"
         >
           Transaction History
         </TabsTrigger>

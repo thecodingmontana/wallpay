@@ -19,7 +19,7 @@ export const transactions: Transaction[] = [
     {
         id: 3,
         type: "Payment",
-        title: "Starbucks",
+        title: "Kuhic, O'Connell and Carter",
         date: subDays(new Date(), 2),
         amount: -15,
     },
@@ -33,7 +33,7 @@ export const transactions: Transaction[] = [
     {
         id: 5,
         type: "Payment",
-        title: "Netflix",
+        title: "Towne - Hackett",
         date: subDays(new Date(), 4),
         amount: -20,
     },

@@ -28,7 +28,7 @@ export default async function UserWalletPage() {
   }
 
   return (
-    <div className="flex flex-col gap-y-4 relative">
+    <div className="grid">
       <WalletHeader user={user} />
       <WalletWrapper user={user} />
     </div>

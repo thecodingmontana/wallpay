@@ -41,10 +41,10 @@ export default function User({
   };
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
+      <DropdownMenuTrigger className="shadow-none" asChild>
         <Button
           size="sm"
-          className="bg-transparent hover:bg-transparent focus-visible:border-0 focus-visible:ring-0 focus-visible:ring-offset-0 cursor-pointer"
+          className="bg-transparent hover:bg-transparent p-0 focus-visible:border-0 focus-visible:ring-0 focus-visible:ring-offset-0 cursor-pointer"
         >
           <Avatar className="h-8 w-8 rounded-lg grayscale">
             <AvatarImage src={user.avatar} alt={user.username} />

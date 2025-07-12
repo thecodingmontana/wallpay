@@ -1,8 +1,8 @@
 "use client";
 
-import { ChevronLeft } from "lucide-react";
 import { motion } from "motion/react";
 import { useRouter } from "next/navigation";
+import { ArrowIcon } from "../svgs/ArrowIcon";
 
 export default function MyWalletHeader() {
   const router = useRouter();
@@ -11,19 +11,14 @@ export default function MyWalletHeader() {
     router.back();
   };
   return (
-    <button
+    <motion.button
       onClick={() => onGoBack()}
-      className="grid w-full cursor-pointer gap-y-6 bg-brand p-5"
+      initial={{ opacity: 0, y: -50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="grid w-full cursor-pointer gap-y-6 p-5"
     >
-      <motion.div
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        className="flex items-center gap-x-1 justify-start text-white"
-      >
-        <ChevronLeft />
-        Back
-      </motion.div>
-    </button>
+      <ArrowIcon className="rotate-[180deg]" />
+    </motion.button>
   );
 }

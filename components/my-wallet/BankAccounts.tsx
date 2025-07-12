@@ -2,12 +2,13 @@
 
 import { motion } from "motion/react";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
-import { ChevronRight } from "lucide-react";
 import { Separator } from "../ui/separator";
-import { format } from "date-fns";
 import Link from "next/link";
 import { useState } from "react";
 import { accounts as initialAccounts } from "@/data/accounts";
+import { ArrowIcon } from "../svgs/ArrowIcon";
+import { Button } from "../ui/button";
+import { PlusIcon } from "lucide-react";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -35,10 +36,10 @@ export default function BankAccounts() {
       initial="hidden"
       animate="visible"
       variants={containerVariants}
-      className="p-4 dark:bg-brand bg-background rounded grid gap-y-2"
+      className="p-4 dark:bg-brand bg-background rounded-lg border grid gap-y-3"
     >
-      <h3>Bank Accounts</h3>
-      <motion.div className="grid gap-y-1">
+      <h3 className="text-muted-foreground dark:text-primary">Bank Accounts</h3>
+      <motion.div className="grid gap-y-2">
         {accounts.map((account, index) => (
           <motion.div
             key={account.id}
@@ -50,7 +51,7 @@ export default function BankAccounts() {
               className="flex items-center justify-between hover:bg-muted dark:hover:bg-brand-secondary cursor-pointer p-2 rounded"
             >
               <div className="flex items-center gap-x-2">
-                <Avatar className="size-10 rounded-md">
+                <Avatar className="size-8 rounded-md">
                   <AvatarImage
                     src={`https://avatar.vercel.sh/${account.name
                       .toLowerCase()
@@ -58,21 +59,20 @@ export default function BankAccounts() {
                   />
                   <AvatarFallback className="rounded-md">CN</AvatarFallback>
                 </Avatar>
-                <div>
-                  <p className="text-md">
-                    {account.name} - {getLastFourDigits(account.number)}
-                  </p>
-                  <p className="text-xs text-muted-foreground">
-                    Added on {format(account.createdAt, "MMM dd, yyyy")}
-                  </p>
-                </div>
+                <p className="text-xl">
+                  {account.name} - {getLastFourDigits(account.number)}
+                </p>
               </div>
-              <ChevronRight />
+              <ArrowIcon className="text-muted-foreground dark:text-primary" />
             </Link>
-            {index < accounts.length - 1 && <Separator />}
+            {index < accounts.length - 1 && <Separator className="mt-2" />}
           </motion.div>
         ))}
       </motion.div>
+      <Button className="capitalize bg-brand hover:bg-brand-secondary rounded-full cursor-pointer dark:bg-white dark:hover:bg-zinc-200">
+        <PlusIcon className="w-6 h-auto" />
+        Add new
+      </Button>
     </motion.div>
   );
 }

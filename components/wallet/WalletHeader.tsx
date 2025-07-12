@@ -1,29 +1,34 @@
 "use client";
 
-import { motion } from "motion/react"
-import { ModeToggle } from "../global/mode-toggle";
+import { motion } from "motion/react";
 import { User as IUser } from "@/types";
 import User from "../auth/User";
+import { useTimeOfDay } from "@/hooks/useTimeOfDay";
+import { NotificationsIcon } from "../svgs/NotificationsIcon";
+import { ModeToggle } from "../global/mode-toggle";
 
 interface WalletHeaderProps {
-    user: IUser
+  user: IUser;
 }
 
 export default function WalletHeader({ user }: WalletHeaderProps) {
+  const timeOfDay = useTimeOfDay();
   return (
-    <div className="grid gap-y-6 bg-brand p-5 h-48">
-      <motion.div
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        className="flex items-center justify-between self-start"
-      >
-        <h2 className="font-bebas-neue text-white text-3xl">Wallpay</h2>
-        <div className="flex items-center">
-          <ModeToggle />
-          {user && <User user={user} />}
-        </div>
-      </motion.div>
-    </div>
+    <motion.div
+      initial={{ opacity: 0, y: -50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className="flex items-center justify-between self-start w-full px-5 py-4"
+    >
+      <h2 className="text-xl font-bold">
+        {timeOfDay},{" "}
+        <span className="capitalize">{user.username.split(" ")[0]}!</span>
+      </h2>
+      <div className="flex items-center gap-x-2">
+        <NotificationsIcon className="cursor-pointer" />
+        <ModeToggle />
+        <User user={user} />
+      </div>
+    </motion.div>
   );
 }

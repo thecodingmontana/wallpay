@@ -3,8 +3,7 @@ import { Separator } from "../ui/separator";
 import { format } from "date-fns";
 import { cn } from "@/lib/utils";
 import type { Transaction } from "@/types";
-import HugeiconsWalletAdd02 from "../svgs/HugeiconsWalletAdd02";
-import HugeiconsWallet02 from "../svgs/HugeiconsWallet02";
+import { ArrowIcon } from "../svgs/ArrowIcon";
 
 interface RecentTransactionsProps {
   transactions: Transaction[];
@@ -18,7 +17,7 @@ export default function RecentTransactions({
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
-      className="dark:bg-brand bg-background p-4 rounded grid gap-y-2 max-h-[400px] mb-10 overflow-y-auto  [&::-webkit-scrollbar]:w-1
+      className="dark:bg-brand bg-background p-4 rounded grid gap-y-2 max-h-[480px] mb-6 overflow-y-auto  [&::-webkit-scrollbar]:w-1
   [&::-webkit-scrollbar-track]:rounded-full
   [&::-webkit-scrollbar-track]:bg-gray-100
   [&::-webkit-scrollbar-thumb]:rounded-full
@@ -59,24 +58,24 @@ export default function RecentTransactions({
                   )}
                 >
                   {isPositive ? (
-                    <HugeiconsWalletAdd02 className="text-emerald-600" />
+                    <ArrowIcon className="text-emerald-600 rotate-[130deg]" />
                   ) : (
-                    <HugeiconsWallet02 className="text-rose-600" />
+                    <ArrowIcon className="text-rose-600 -rotate-[40deg]" />
                   )}
                 </div>
 
                 <div className="flex items-center justify-between w-full">
                   <div>
                     <h4 className="text-sm">{txn.title}</h4>
-                    <p className="text-xs text-muted-foreground">
-                      {txn.type} • {format(txn.date, "hh:mm a | do MMM yyyy")}
+                    <p className="text-xs text-muted-foreground dark:text-zinc-300">
+                      {format(txn.date, "hh:mm a | MMM Qo")}
                     </p>
                   </div>
 
                   <p
                     className={cn(
                       "font-medium",
-                      isPositive ? "text-emerald-600" : "text-rose-600"
+                      isPositive ? "text-emerald-600 dark:text-white" : "text-rose-600"
                     )}
                   >
                     {isPositive
