@@ -4,42 +4,33 @@ Wallpay is a **Next.js** app that simulates a wallet application, built with **N
 
 ## ✨ Features
 
-- Simulated sign-in page
-  - Validates email (must be a valid format)
-  - Validates password (minimum 8 characters)
-  - On successful validation, creates a dummy user and stores data in cookies using **server actions**
 - Displays dummy wallets, bank accounts, and transactions
 - Dark mode toggle
-- Middleware to protect authenticated routes
 - Husky and commitlint configured for commit message linting
 
 ## 📂 Project Structure
 
 ```
 /
-├── actions/               # server actions
-│   └── auth-actions.ts    # auth-related actions
 ├── components/            # UI components
 ├── data/                  # dummy data for accounts, wallets, transactions
 ├── lib/
 │   └── utils.ts           # utility functions
-├── middleware.ts          # checks for user authentication
 ├── providers/
 │   └── theme-provider.tsx # dark mode theme provider
+├── hooks/
+│   └── useTimeOfDay.ts    # hook to find time of day
 ├── types/                 # TypeScript types
 ├── pages/
-│   ├── auth/
-│   │   └── signin.tsx
 │   ├── user/
-│   │   ├── my-wallet.tsx
-│   │   └── my-wallet/[walletId].tsx
-│   └── wallet.tsx         # homepage
+│   │   ├── my-wallet/page.tsx
+│   │   └── my-wallet/[walletId]/page.tsx
+│   └── page.tsx         # homepage
 ```
 
 ## 🗝 Pages
 
-- `/auth/signin` — sign in page
-- `/wallet` — homepage
+- `/` — homepage
 - `/user/my-wallet` — view your wallets
 - `/user/my-wallet/[walletId]` — view specific wallet
 
