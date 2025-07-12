@@ -18,7 +18,7 @@ export default function RecentTransactions({
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
-      className="dark:bg-brand bg-background p-4 rounded grid gap-y-2 max-h-[500px] overflow-y-auto  [&::-webkit-scrollbar]:w-1
+      className="dark:bg-brand bg-background p-4 rounded grid gap-y-2 max-h-[400px] mb-10 overflow-y-auto  [&::-webkit-scrollbar]:w-1
   [&::-webkit-scrollbar-track]:rounded-full
   [&::-webkit-scrollbar-track]:bg-gray-100
   [&::-webkit-scrollbar-thumb]:rounded-full
