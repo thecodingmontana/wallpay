@@ -7,7 +7,6 @@ import { Button } from "../ui/button";
 import { ArrowIcon } from "../svgs/ArrowIcon";
 
 interface HomeCardProps {
-  username: string;
   transactions: Transaction[];
 }
 

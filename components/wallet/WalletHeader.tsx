@@ -1,17 +1,11 @@
 "use client";
 
 import { motion } from "motion/react";
-import { User as IUser } from "@/types";
-import User from "../auth/User";
 import { useTimeOfDay } from "@/hooks/useTimeOfDay";
 import { NotificationsIcon } from "../svgs/NotificationsIcon";
 import { ModeToggle } from "../global/mode-toggle";
 
-interface WalletHeaderProps {
-  user: IUser;
-}
-
-export default function WalletHeader({ user }: WalletHeaderProps) {
+export default function WalletHeader() {
   const timeOfDay = useTimeOfDay();
   return (
     <motion.div
@@ -22,12 +16,11 @@ export default function WalletHeader({ user }: WalletHeaderProps) {
     >
       <h2 className="text-xl font-bold">
         {timeOfDay},{" "}
-        <span className="capitalize">{user.username.split(" ")[0]}!</span>
+        <span className="capitalize">Matt!</span>
       </h2>
       <div className="flex items-center gap-x-2">
         <NotificationsIcon className="cursor-pointer" />
         <ModeToggle />
-        <User user={user} />
       </div>
     </motion.div>
   );

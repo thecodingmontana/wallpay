@@ -7,6 +7,8 @@ import {
 } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/providers/theme-provider";
+import BottomSheetTabs from "@/components/wallet/BottomSheetTabs";
+import { Toaster } from "@/components/ui/sonner";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -51,7 +53,14 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <main className="flex justify-center min-h-svh">
+            <div className="flex relative flex-col max-w-md w-full min-h-svh bg-muted">
+              {children}
+              <BottomSheetTabs />
+              {/* <ModalProvider /> */}
+              <Toaster richColors closeButton />
+            </div>
+          </main>
         </ThemeProvider>
       </body>
     </html>
