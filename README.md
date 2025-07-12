@@ -2,6 +2,10 @@
 
 Wallpay is a **Next.js** app that simulates a wallet application, built with **Next.js 15** with app router, **TailwindCSS v4**, and **shadcn/ui**.
 
+## Demo Link
+
+[Demo Preview](https://wallpay.vercel.app)
+
 ## ✨ Features
 
 - Displays dummy wallets, bank accounts, and transactions
